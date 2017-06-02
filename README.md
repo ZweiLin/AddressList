@@ -5,13 +5,13 @@
 *数据库使用mysql编写
 *数据库中有两个基本表，用户表users和联系人表contacts,建表代码如下
 
- ####用户表users
+ #### 用户表users
     CREATE TABLE users(
     username VARCHAR(15) PRIMARY KEY,
     password VARCHAR(16)
     );
 
- ####联系人表contacts
+ #### 联系人表contacts
  CREATE TABLE contacts(
  id INT(5) PRIMARY KEY AUTO_INCREMENT,
  user VARCHAR(15) ,
