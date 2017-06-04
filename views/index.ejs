@@ -23,6 +23,15 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="register" id="register">注册</a></li>
             <li><a href="login" id="login">登录</a> </li>
+            <li class="dropdown" id="userButton">
+                <a href="home" id="user" class="dropdown-toggle">
+                    <%=currentUser%>
+                  <span class="caret"></span>
+                </a>
+              <ul class="dropdown-menu dropdown-menu-left">
+                <li><a href="#" id="logout">注销</a> </li>
+              </ul>
+            </>
           </ul>
         </div>
       </div>
@@ -37,8 +46,33 @@
     <!--</p>-->
   </body>
 <script src="https://code.jquery.com/jquery.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
 <script>
   $(function () {
+//      alert($('#user').text().replace(/\s+/g,""));
+     if($('#user').text().replace(/\s+/g,"")==='未登录'){
+          $('#userButton').addClass('hidden');
+     }else {
+          $('#login').parent().addClass('hidden');
+          $('#register').parent().addClass('hidden');
+     }
+     $("#logout").click(function (event) {
+          event.preventDefault();
+          $.ajax({
+              url: '/logout',
+              type: 'post',
+              data: '',
+              success: function(data,status){
+                  if(status == 'success'){
+                      //alert("请求成功");
+                      location.href='/';
+                  }
+              },
+              error: function(data,err){
+                  alert("发送请求失败！！");
+              }
+          });
+      }) ;
      $("#login").click(function (event) {
          active("login");
          event.preventDefault();
@@ -53,7 +87,13 @@
           active("home");
           event.preventDefault();
           getPage("/home");
+//          alert(currentUser);
       }) ;
+      $('.dropdown').mouseover(function() {
+          $(this).addClass('open');
+      }).mouseout(function() {
+          $(this).removeClass('open');
+      });
       window.onload=getPage("/home");
       function getPage(url) {
           $.ajax({
@@ -71,6 +111,7 @@
           $(".active").removeClass("active");
           $("#"+id).parent().addClass("active");
       }
+
   });
 </script>
 </html>

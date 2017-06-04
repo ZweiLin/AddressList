@@ -20,11 +20,11 @@ router.get('/home', function(req, res) {
         //res.redirect("/login");
     }
     else {
-        console.log(req.session.user+"已登录");
+        console.log("当前用户："+req.session.user);
     }
     res.render('home', {
-        title: '通讯录主页',
-        currentUser: req.session.user||'未登录'
+        title: '微通讯录系统',
+        currentUser: req.session.user||'游客'
     });
 });
 //获取登录页
@@ -61,10 +61,16 @@ router.post('/login',function (req, res, next) {
             res.redirect("/");
         }
         else{
-            console.log("login failed...");
+            console.log("登录失败...");
         }
     });
-    console.log("post成功");
+});
+//提交登出请求
+router.post('/logout',function (req, res, next) {
+    console.log(req.session.user+"已登出!!");
+    req.session.user=null;
+    req.session.error=null;
+    res.redirect('/');
 });
 // //提交注册请求
 // router.post('/register',function (req, res, next) {
