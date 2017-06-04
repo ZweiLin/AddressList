@@ -1,18 +1,74 @@
 var express = require('express');
+var Contact= require('../models/contacts');
+var Users= require('../models/users');
+
 var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: '通讯录系统' });
+  res.render('index', {
+      title: '通讯录系统',
+      currentUser:req.session.user||'未登录'
+  });
 });
-router.get('/home', function(req, res, next) {
-    res.render('home', { title: '通讯录主页' });
+//获取主页
+router.get('/home', function(req, res) {
+    // var sess=req.session;
+    // var loginUser=sess.user;
+    if(!req.session.user){
+        req.session.error="请先登录";
+        //res.redirect("/login");
+    }
+    else {
+        console.log(req.session.user+"已登录");
+    }
+    res.render('home', {
+        title: '通讯录主页',
+        currentUser: req.session.user||'未登录'
+    });
 });
+//获取登录页
 router.get('/login', function(req, res, next) {
-    res.render('login', { title: '登录页' });
+    res.render('login', { title: '登录页',username:'未登录' });
 });
+//获取注册页
 router.get('/register', function(req, res, next) {
     res.render('register', { title: '注册页' });
 });
+//获取关于页
+router.get('/about',function (req, res, next) {
+    res.render('about', {
+        title: '关于通讯录系统',
+        developer: '14级软件二班-林泽伟-3114006220',
+        git: 'https://github.com/ZweiLin/AddressList'
+    });
+});
+
+//提交登陆请求
+router.post('/login',function (req, res, next) {
+    var username=req.body['username'];
+    var pwd=req.body['password'];
+
+    Users.login(username,pwd,function (err,rows) {
+       if(err){
+           return next(err);
+       }
+        if(rows){
+           Users.currentUser.username=username;
+            Users.currentUser.password=pwd;
+            req.session.user=username;
+            console.log(req.session.user+"已登录！！");
+            res.redirect("/");
+        }
+        else{
+            console.log("login failed...");
+        }
+    });
+    console.log("post成功");
+});
+// //提交注册请求
+// router.post('/register',function (req, res, next) {
+//
+// });
 
 module.exports = router;
