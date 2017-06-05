@@ -8,7 +8,8 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', {
       title: '通讯录系统',
-      currentUser:req.session.user||'未登录'
+      currentUser:req.session.user||'未登录',
+      location:'/home'
   });
 });
 //获取主页
@@ -72,9 +73,23 @@ router.post('/logout',function (req, res, next) {
     req.session.error=null;
     res.redirect('/');
 });
-// //提交注册请求
-// router.post('/register',function (req, res, next) {
-//
-// });
+//提交注册请求
+router.post('/register',function (req, res, next) {
+    var username=req.body['username'];
+    var pwd=req.body['password'];
+
+    Users.register(username,pwd,function (err, result) {
+        if(err){
+            return next(err);
+        }
+        if(result){
+            console.log("新用户"+username+"注册成功！！");
+            res.redirect("/login");
+        }else {
+            console.log("注册失败");
+            res.render('register',{ message:"注册失败"});
+        }
+    })
+});
 
 module.exports = router;
