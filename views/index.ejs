@@ -12,6 +12,7 @@
           <a class="navbar-brand" href="/">
             <span class="glyphicon glyphicon-phone-alt"></span>
             <span>通讯录系统</span>
+            <span class="hidden" id="location"><%=location%></span>
           </a>
         </div>
         <div class="collapse navbar-collapse" id="links">
@@ -94,7 +95,8 @@
       }).mouseout(function() {
           $(this).removeClass('open');
       });
-      window.onload=getPage("/home");
+      //window.onload=getPage("/home");
+      window.onload=getPage($('#location').text().replace(/\s+/g,""));
       function getPage(url) {
           $.ajax({
               url: url,

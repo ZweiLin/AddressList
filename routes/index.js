@@ -85,6 +85,7 @@ router.post('/register',function (req, res, next) {
         if(result){
             console.log("新用户"+username+"注册成功！！");
             res.redirect("/login");
+            //res.render('login', { title: '登录页',username:'未登录' });
         }else {
             console.log("注册失败");
             res.render('register',{ message:"注册失败"});

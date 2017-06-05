@@ -14,31 +14,116 @@
             <h4><strong>用户登录</strong></h4>
           </div>
           <div class="panel-body">
-            <form role="form">
+            <form role="form" method="post" onsubmit="false">
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                  <input type="text" class="form-control" placeholder="用户名">
+                  <input type="text" class="form-control" name="username"  id="username" placeholder="用户名">
                 </div>
               </div>
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span> </span>
-                  <input type="text" class="form-control" placeholder="密码">
+                  <input type="password" class="form-control" name="password" id="password" placeholder="密码">
                 </div>
               </div>
+              <div class="alert alert-danger hidden" id="alert"></div>
               <div class="form-group">
-                <button type="submit" class="btn btn-primary form-control"><strong>登录</strong></button>
+                <button type="submit" class="btn btn-primary form-control" id="loginBtn"><strong>登录</strong></button>
               </div>
             </form>
             <!--<p class="text-right">-->
               <!--<a href="register"> 新用户注册 </a>-->
               <!--<a href="/"> 返回 </a>-->
             <!--</p>-->
+            <!--<p><%= username%></p>-->
           </div>
         </div>
       </div>
     </div>
   </div>
   </body>
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="bootstrap/js/bootstrap.js"></script>
+  <script>
+    $(function () {
+       var isTouched=[false,false];
+       var isOK=[false,false];
+        $("#username").focus(function () {
+            isTouched[0]=true;
+            $('#username').parent().removeClass('has-error').removeClass('has-success');
+        });
+        $("#password").focus(function () {
+            isTouched[1]=true;
+//            $('#alert').text('').addClass('hidden');
+            $('#password').parent().removeClass('has-error').removeClass('has-success');
+        });
+       $("#username").blur(function () {
+           if(isTouched[0]){
+               if(!$('#username').val()){
+                   isOK[0]=false;
+                   $('#username').parent().addClass('has-error').removeClass('has-success');
+                   $('#alert').text('账户和密码均不能为空').removeClass('hidden');
+               }else{
+                   isOK[0]=true;
+                   $('#username').parent().addClass('has-success').removeClass('has-error');
+                   if(isOK[0]&&isOK[1]) {
+                       $('#loginBtn').attr('disabled',false);
+                       $('#alert').text('').addClass('hidden');
+                   }
+               }
+           }
+       });
+        $("#password").blur(function () {
+            if(isTouched[1]){
+                if(!$('#password').val()){
+                    isOK[1]=false;
+                    $('#password').parent().addClass('has-error').removeClass('has-success');
+                    $('#alert').text('账户和密码均不能为空').removeClass('hidden');
+                }else{
+                    isOK[1]=true;
+                    $('#password').parent().addClass('has-success').removeClass('has-error');
+                    if(isOK[0]&&isOK[1]) {
+                        $('#loginBtn').attr('disabled',false);
+                        $('#alert').text('').addClass('hidden');
+                    }
+                }
+            }
+        });
+       $("#loginBtn").click(function (event) {
+           event.preventDefault();
+           var username=$("#username").val();
+           var password=$("#password").val();
+           if(username&&password){
+               var data={
+                   "username":username,
+                   "password":password
+               };
+               $.ajax({
+                   url: '/login',
+                   type: 'post',
+                   data: data,
+                   success: function(data,status){
+                       if(status == 'success'){
+                           //alert("请求成功");
+                           location.href='/';
+                       }
+                   },
+                   error: function(data,err){
+                       alert("发送请求失败！！");
+                   }
+               });
+           }else{
+               if(!username){
+                   $('#username').parent().addClass('has-error').removeClass('has-success');
+               }
+               if(!password){
+                   $('#password').parent().addClass('has-error').removeClass('has-success');
+               }
+               $('#alert').text('账户和密码均不能为空').removeClass('hidden');
+               $('#loginBtn').attr('disabled',true);
+           }
+       }) ;
+    });
+  </script>
 </html>
