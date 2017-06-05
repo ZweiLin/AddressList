@@ -14,27 +14,30 @@
             <h4><strong>用户注册</strong></h4>
           </div>
           <div class="panel-body">
-            <form role="form">
+            <form role="form" method="post">
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                  <input type="text" class="form-control" placeholder="用户名">
+                  <input type="text" class="form-control" placeholder="用户名" name="username" id="username">
                 </div>
               </div>
+              <div class="alert alert-danger hidden" id="usernameAlert"></div>
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span> </span>
-                  <input type="text" class="form-control" placeholder="密码">
+                  <input type="password" class="form-control" placeholder="密码" name="password" id="password">
                 </div>
               </div>
+              <div class="alert alert-danger hidden" id="passwordAlert"></div>
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span> </span>
-                  <input type="text" class="form-control" placeholder="确认密码">
+                  <input type="password" class="form-control" placeholder="确认密码" name="confirm" id="confirm">
                 </div>
               </div>
+              <div class="alert alert-danger hidden" id="confirmAlert"></div>
               <div class="form-group">
-                <button type="submit" class="btn btn-primary form-control"><strong>注册</strong></button>
+                <button type="submit" class="btn btn-primary form-control" id="registerBtn"><strong>注册</strong></button>
               </div>
             </form>
             <!--<p class="text-right"><a href="/">返回</a></p>-->
@@ -43,5 +46,154 @@
       </div>
     </div>
   </div>
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="bootstrap/js/bootstrap.js"></script>
+  <script>
+      $(function () {
+          var isTouched=[0,0,0];
+          var isOK=[false,false,false];
+          function usernameCheck() {
+              var test=/\w{3,15}/;
+              if(!$('#username').val()){
+                  $('#username').parent().addClass('has-error').removeClass('has-success');
+                  $('#usernameAlert').text('用户名不能为空').removeClass('hidden');
+                  $('#registerBtn').attr('disabled',true);
+                  isOK[0]=false;
+              }else{
+                  if(!test.exec($('#username').val())){
+                      $('#username').parent().addClass('has-error').removeClass('has-success');
+                      $('#usernameAlert').text('用户名应为3-15位的下划线、汉字、数字或字母').removeClass('hidden');
+                      $('#registerBtn').attr('disabled',true);
+                      isOK[0]=false;
+                  }else {
+                      $('#username').parent().removeClass('has-error').addClass('has-success');
+                      $('#usernameAlert').text('').addClass('hidden');
+                      isOK[0]=true;
+                      if(isOK[0]&&isOK[1]&&isOK[2]) $('#registerBtn').removeClass('disabled').attr('disabled',false);
+                  }
+              }
+          }
+          function passwordCheck() {
+              var check=/\w{6,16}/;
+              if(!$('#password').val()){
+                  $('#password').parent().addClass('has-error').removeClass('has-success');
+                  $('#passwordAlert').text('密码不能为空').removeClass('hidden');
+                  $('#registerBtn').attr('disabled',true);
+                  isOK[1]=false;
+              }else{
+                  if(!check.exec($('#password').val())){
+                      $('#password').parent().addClass('has-error').removeClass('has-success');
+                      $('#passwordAlert').text('密码应为6-16位的下划线、汉字、数字或字母').removeClass('hidden');
+                      $('#registerBtn').attr('disabled',true);
+                      isOK[1]=false;
+                  }else {
+                      $('#password').parent().removeClass('has-error').addClass('has-success');
+                      $('#passwordAlert').text('').addClass('hidden');
+                      isOK[1]=true;
+                      if(isOK[0]&&isOK[1]&&isOK[2]) $('#registerBtn').removeClass('disabled').attr('disabled',false);
+                  }
+              }
+              if(isTouched[2]===1) confirmCheck();
+          }
+          function confirmCheck() {
+              var check=/\w{6,16}/;
+              if(!$('#confirm').val()){
+                  $('#confirm').parent().addClass('has-error').removeClass('has-success');
+                  $('#confirmAlert').text('确认密码不能为空').removeClass('hidden');
+                  $('#registerBtn').attr('disabled',true);
+                  isOK[2]=false;
+              }else{
+                  if($('#confirm').val()!==$('#password').val()){
+                      $('#confirm').parent().addClass('has-error').removeClass('has-success');
+                      $('#confirmAlert').text('两次密码不一致').removeClass('hidden');
+                      $('#registerBtn').attr('disabled',true);
+                      isOK[2]=false;
+                  }else{
+                      if(!check.exec($('#confirm').val())){
+                          $('#confirm').parent().addClass('has-error').removeClass('has-success');
+                          $('#confirmAlert').text('密码应为6-16位的下划线、汉字、数字或字母').removeClass('hidden');
+                          $('#registerBtn').attr('disabled',true);
+                          isOK[2]=false;
+                      }else{
+                          $('#confirm').parent().removeClass('has-error').addClass('has-success');
+                          $('#confirmAlert').text('').addClass('hidden');
+                          isOK[2]=true;
+                          if(isOK[0]&&isOK[1]&&isOK[2]) $('#registerBtn').removeClass('disabled').attr('disabled',false);
+                      }
+                  }
+
+              }
+          }
+          $('#username').focus(function () {
+             isTouched[0]=1;
+              $('#username').parent().removeClass('has-error');
+              $('#usernameAlert').text('').addClass('hidden');
+          });
+          $('#username').blur(function () {
+              if(isTouched[0]==1){
+                  usernameCheck();
+              }
+          });
+
+          $('#password').focus(function () {
+              isTouched[1]=1;
+              $('#password').parent().removeClass('has-error');
+              $('#passwordAlert').text('').addClass('hidden');
+          });
+          $('#password').blur(function () {
+              if(isTouched[1]==1){
+                  passwordCheck();
+              }
+          });
+
+          $('#confirm').focus(function () {
+              isTouched[2]=1;
+              $('#confirm').parent().removeClass('has-error');
+              $('#confirmAlert').text('').addClass('hidden');
+          });
+          $('#confirm').blur(function () {
+              if(isTouched[2]==1){
+                  confirmCheck();
+              }
+          });
+
+          $("#registerBtn").click(function (event) {
+              event.preventDefault();
+
+              var username=$("#username").val();
+              var password=$("#password").val();
+              var confirm=$("#confirm").val();
+
+              $('#usernameAlert').text('').addClass('hidden');
+              $('#passwordAlert').text('').addClass('hidden');
+              $('#confirmAlert').text('').addClass('hidden');
+
+              if(!(username&&password&&confirm)){
+                  usernameCheck();
+                  passwordCheck();
+                  confirmCheck();
+              }else {
+                  var data={
+                      "username":username,
+                      "password":password
+                  };
+                  $.ajax({
+                      url: '/register',
+                      type: 'post',
+                      data: data,
+                      success: function(data,status){
+                          if(status == 'success'){
+                              //alert("请求成功");
+                              location.href='/';
+                          }
+                      },
+                      error: function(data,err){
+                          alert("发送请求失败！！");
+                      }
+                  });
+              }
+          }) ;
+      });
+  </script>
   </body>
 </html>
