@@ -42,10 +42,7 @@ router.get('/findAllContacts',function (req, res, next) {
 router.post('/findContactsByName',function (req, res, next) {
     var username=req.session.user;
     var name=req.body['filter'];
-    // res.render('result',{
-    //     title:'result',
-    //     result:'OK'
-    // });
+
     Contact.findContactsByName(username,name,function (err,result) {
         if(err){
             return next(err);
@@ -57,14 +54,69 @@ router.post('/findContactsByName',function (req, res, next) {
             title:'result',
             result:result
         });
-        // res.redirect.url='/result';
     });
 });
-router.get('findContactsByTelephone',function (req, res, next) {
+router.post('/findContactsByTelephone',function (req, res, next) {
+    var username=req.session.user;
+    var telephone=req.body['filter'];
 
+    Contact.findContactsByTelephone(username,telephone,function (err,result) {
+        if(err){
+            return next(err);
+        }
+        // console.log(username);
+        // console.log(name);
+        console.log(result);
+        res.render('result',{
+            title:'result',
+            result:result
+        });
+    });
 });
-router.get('findContactsByMobile',function (req, res, next) {
+router.post('/findContactsByMobile',function (req, res, next) {
+    var username=req.session.user;
+    var mobile=req.body['filter'];
 
+    Contact.findContactsByName(username,mobile,function (err,result) {
+        if(err){
+            return next(err);
+        }
+        console.log(result);
+        res.render('result',{
+            title:'result',
+            result:result
+        });
+    });
+});
+router.post('/findContactsByCompany',function (req, res, next) {
+    var username=req.session.user;
+    var company=req.body['filter'];
+
+    Contact.findContactsByName(username,company,function (err,result) {
+        if(err){
+            return next(err);
+        }
+        console.log(result);
+        res.render('result',{
+            title:'result',
+            result:result
+        });
+    });
+});
+router.post('/findContactsByPost',function (req, res, next) {
+    var username=req.session.user;
+    var post=req.body['filter'];
+
+    Contact.findContactsByName(username,post,function (err,result) {
+        if(err){
+            return next(err);
+        }
+        console.log(result);
+        res.render('result',{
+            title:'result',
+            result:result
+        });
+    });
 });
 
 module.exports=router;
