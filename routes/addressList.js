@@ -64,8 +64,8 @@ router.post('/findContactsByTelephone',function (req, res, next) {
         if(err){
             return next(err);
         }
-        // console.log(username);
-        // console.log(name);
+        console.log(username);
+        console.log(telephone);
         console.log(result);
         res.render('result',{
             title:'result',
@@ -77,10 +77,12 @@ router.post('/findContactsByMobile',function (req, res, next) {
     var username=req.session.user;
     var mobile=req.body['filter'];
 
-    Contact.findContactsByName(username,mobile,function (err,result) {
+    Contact.findContactsByMobile(username,mobile,function (err,result) {
         if(err){
             return next(err);
         }
+        console.log(username);
+        console.log(mobile);
         console.log(result);
         res.render('result',{
             title:'result',
@@ -92,10 +94,12 @@ router.post('/findContactsByCompany',function (req, res, next) {
     var username=req.session.user;
     var company=req.body['filter'];
 
-    Contact.findContactsByName(username,company,function (err,result) {
+    Contact.findContactsByCompany(username,company,function (err,result) {
         if(err){
             return next(err);
         }
+        console.log(username);
+        console.log(company);
         console.log(result);
         res.render('result',{
             title:'result',
@@ -107,10 +111,12 @@ router.post('/findContactsByPost',function (req, res, next) {
     var username=req.session.user;
     var post=req.body['filter'];
 
-    Contact.findContactsByName(username,post,function (err,result) {
+    Contact.findContactsByPost(username,post,function (err,result) {
         if(err){
             return next(err);
         }
+        console.log(username);
+        console.log(post);
         console.log(result);
         res.render('result',{
             title:'result',

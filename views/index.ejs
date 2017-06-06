@@ -32,11 +32,19 @@
               <ul class="dropdown-menu dropdown-menu-left">
                 <li><a href="#" id="logout">注销</a> </li>
               </ul>
-            </>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
+    <div class="container">
+      <div class="alert alert-warning hidden" id="loginAlert">
+        <a href="#" class="close" data-dismiss="alert">
+          &times;
+        </a>
+        <span><%= message%></span>
+      </div>
+    </div>
     <div class="container" id="content"></div>
     <!--<h1><%= title %></h1>-->
     <!--<p>欢迎来到<%= title %></p>-->
@@ -51,6 +59,9 @@
 <script>
   $(function () {
 //      alert($('#user').text().replace(/\s+/g,""));
+     if($('#loginAlert span').text().replace(/\s+/g,"")!==''){
+         $('#loginAlert').removeClass('hidden');
+     }
      if($('#user').text().replace(/\s+/g,"")==='未登录'){
           $('#userButton').addClass('hidden');
      }else {
