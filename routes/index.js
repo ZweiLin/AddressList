@@ -9,7 +9,8 @@ router.get('/', function(req, res, next) {
   res.render('index', {
       title: '通讯录系统',
       currentUser:req.session.user||'未登录',
-      location:'/home'
+      location:'/home',
+      message:''
   });
 });
 //获取主页
