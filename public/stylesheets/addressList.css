@@ -1,0 +1,130 @@
+.leftBar{
+    background-color: #2e514f;
+    width: 200px;
+    padding: 50px 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top:0;
+}
+.main{
+    position: absolute;
+    width: 100%;
+    padding-left: 200px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #e2ffee;
+    overflow: scroll;
+}
+.topBar{
+    padding: 15px 0 0 10px;
+    margin-bottom: 30px;
+    background-color: #d7f9df;
+}
+.topBar form{
+    float: left;
+    margin-left: 10%;
+    padding: 5px 0;
+}
+.topBar form button{
+    background-color: #1a7b2f;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    height: 28px;
+    width: 100px;
+}
+.topBar form input{
+    height: 28px;
+    border: none;
+    border-radius: 3px;
+    padding: 0 1em;
+}
+.content{
+    position: absolute;
+    left: 25%;
+    /*right: 20px;*/
+    top: 80px;
+    bottom: 20px;
+    border-radius: 10px;
+    background-color: #ccfff3;
+    padding: 10px;
+    width: 60%;
+    overflow: auto;
+}
+.contactsHeader{
+    background-color: #5cb85c;
+    color: white;
+    font-size: 20px;
+}
+.contacts,.contactsHeader{
+    margin: 3px;
+}
+.contacts span,.contactsHeader span{
+    /*display: inline-block;*/
+    /*!*float: left;*!*/
+    /*margin: 5px;*/
+    /*width: 150px;*/
+    line-height: 28px;
+    text-align: center;
+}
+.contacts .operation{
+    padding-top: 3px ;
+    padding-bottom: 3px ;
+    margin-left: 20px;
+}
+#filterList{
+    display: inline;
+}
+#view{
+    float: left;
+    color: white;
+    background-color: #1a7b2f;
+    margin-left: 2%;
+}
+#functionBar{
+    text-align: left;
+    width: 100%;
+}
+#functionBar ul{
+    padding: 0;
+    width: 100%;
+}
+#functionBar ul li{
+    list-style: none;
+    /*text-align: center;*/
+    padding: 20px 25px;
+    color: white;
+    /*position: relative;*/
+}
+#functionBar ul li:hover{
+    background-color: #172f2d;
+}
+#functionBar ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+#functionBar ul li span{
+    float: right;
+}
+#userButton ul{
+    margin-top: -5px;
+}
+#userBar{
+    text-align: left;
+    padding: 0px 25px;
+}
+#userImg{
+    display: inline-block;
+    max-width: 90px;
+}
+#user{
+    /*margin-left: 10px;*/
+    font-weight: bold;
+    line-height: 50px;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+}

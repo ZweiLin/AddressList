@@ -14,6 +14,17 @@ function Contact() {
 
 module.exports=Contact;
 
+//根据查找所有联系人
+Contact.findAllContacts=function (username,callback) {
+    var sql="SELECT name,telephone,mobile,company,post FROM contacts WHERE user= '"+username+"';";
+    db.exec(sql,'',function(err,rows){
+        if(err){
+            return callback(err);
+        }
+        callback(err,rows);
+    });
+};
+
 //添加联系人
 Contact.addContact=function (user,name,telephone,mobile,company,post,callback) {
     var sql="INSERT INTO contacts VALUES('"+user+"','"+name+"','"+telephone+"','"+mobile+"','"+company+"','"+post+")";

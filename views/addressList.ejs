@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <!--<link rel='stylesheet' href='stylesheets/style.css' />-->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/addressList.css">
+  </head>
+  <body>
+  <div class="main">
+    <div class="topBar navbar navbar-default">
+      <div class="container-fluid">
+        <div class="row">
+          <button class="btn" id="view"><span class="glyphicon glyphicon-align-justify"></span></button>
+          <form onsubmit="false" method="post">
+            <div class="form-group">
+              <div class="input-group">
+                <input type="text" name="filter"  id="filter" placeholder="请输入关键字">
+                <div  class="dropdown" id="filterList">
+                  <button>筛选条件<span class="caret"></span></button>
+                  <ul class="dropdown-menu dropdown-menu-left">
+                    <li><a href="#">姓名</a></li>
+                    <li><a href="#">固定电话</a></li>
+                    <li><a href="#">手机</a></li>
+                    <li><a href="#">公司</a></li>
+                    <li><a href="#">职位</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <ul id="contactsList" class="list-group">
+        <li class="contactsHeader list-group-item row">
+          <span class="name col-lg-2 col-md-2 col-sm-2 col-xs-2">姓名</span>
+          <span class="telephone col-lg-2 col-md-2 col-sm-2 col-xs-2">固定电话</span>
+          <span class="mobile col-lg-2 col-md-2 col-sm-2 col-xs-2">手机</span>
+          <span class="company col-lg-2 col-md-2 col-sm-2 col-xs-2">公司</span>
+          <span class="post col-lg-2 col-md-2 col-sm-2 col-xs-2">职位</span>
+          <!--<div class=" col-lg-2 col-md-2 col-sm-2 col-xs-2"><button class="operation btn btn-success">操 作</button></div>-->
+        </li>
+        <li class="contacts list-group-item row">
+          <span class="name col-lg-2 col-md-2 col-sm-2 col-xs-2">林某某</span>
+          <span class="telephone col-lg-2 col-md-2 col-sm-2 col-xs-2">88888888</span>
+          <span class="mobile col-lg-2 col-md-2 col-sm-2 col-xs-2">18088888888</span>
+          <span class="company col-lg-2 col-md-2 col-sm-2 col-xs-2">Tencent</span>
+          <span class="post col-lg-2 col-md-2 col-sm-2 col-xs-2">CTO</span>
+          <div class=" col-lg-2 col-md-2 col-sm-2 col-xs-2"><button class="operation btn btn-success">操 作</button></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div  class="leftBar">
+    <div id="userBar">
+      <img class="img-circle" id="userImg" src="/images/user.png">
+      <div class="dropdown" id="userButton">
+        <a href="home" id="user" class="dropdown-toggle">
+          用户
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-left">
+          <li><a href="#" id="logout">注销</a> </li>
+        </ul>
+      </div>
+    </div>
+    <div id="functionBar">
+      <ul>
+        <li><a>联系人列表1</a><span class="glyphicon glyphicon-chevron-left"></span></li>
+        <li><a>联系人列表2</a><span class="glyphicon glyphicon-chevron-left"></span></li>
+        <li><a>联系人列表3</a><span class="glyphicon glyphicon-chevron-left"></span></li>
+        <li><a>联系人列表4</a><span class="glyphicon glyphicon-chevron-left"></span></li>
+      </ul>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="bootstrap/js/bootstrap.js"></script>
+  <script>
+      $('.dropdown').mouseover(function() {
+          $(this).addClass('open');
+      }).mouseout(function() {
+          $(this).removeClass('open');
+      });
+      $('#search').click(function () {
+          $.ajax({
+              url: '/addressList/findAllContacts',
+              type: 'get',
+              success: function(data,status){
+                  if(status == 'success'){
+                      //alert("请求成功");
+                      $('#content').html(data);
+                  }
+              },
+              error: function(data,err){
+                  alert("发送请求失败！！");
+              }
+          });
+      });
+  </script>
+  </body>
+</html>
