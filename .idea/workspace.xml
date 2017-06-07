@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6369069-8b58-48f4-b056-611869de4334" name="Default" comment="更新联系人删除功能">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/about.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/addressList.ejs" afterPath="$PROJECT_DIR$/views/addressList.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.ejs" afterPath="$PROJECT_DIR$/views/index.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -98,8 +96,8 @@
       <file leaf-file-name="about.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/about.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="29" column="67" lean-forward="true" selection-start-line="29" selection-start-column="67" selection-end-line="29" selection-end-column="67" />
+            <state relative-caret-position="494">
+              <caret line="27" column="39" lean-forward="false" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -518,7 +516,7 @@
       <workItem from="1496626998868" duration="36751000" />
       <workItem from="1496735661846" duration="23373000" />
       <workItem from="1496773814731" duration="193000" />
-      <workItem from="1496803037701" duration="24608000" />
+      <workItem from="1496803037701" duration="24710000" />
     </task>
     <task id="LOCAL-00001" summary="更新views页面、数据库的初步设计以及路由管理的初步实现">
       <created>1496391148959</created>
@@ -667,11 +665,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496825591686</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="更新关于页面">
+      <created>1496840764803</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1496840764803</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="164422000" />
+    <option name="totallyTimeSpent" value="164524000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -722,7 +727,8 @@
     <MESSAGE value="更新弹出模态框表单（用于新建、编辑联系人）功能" />
     <MESSAGE value="更新添加联系人功能" />
     <MESSAGE value="更新修改联系人功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新修改联系人功能" />
+    <MESSAGE value="更新关于页面" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新关于页面" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1012,8 +1018,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/about.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="29" column="67" lean-forward="true" selection-start-line="29" selection-start-column="67" selection-end-line="29" selection-end-column="67" />
+        <state relative-caret-position="494">
+          <caret line="27" column="39" lean-forward="false" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
           <folding />
         </state>
       </provider>
