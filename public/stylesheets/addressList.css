@@ -22,12 +22,12 @@
     margin-bottom: 30px;
     background-color: #d7f9df;
 }
-.topBar form{
+.topBar #filterForm{
     float: left;
     margin-left: 10%;
     padding: 5px 0;
 }
-.topBar form button{
+.topBar #filterForm button{
     background-color: #1a7b2f;
     color: white;
     border: none;
@@ -35,7 +35,7 @@
     height: 28px;
     width: 100px;
 }
-.topBar form input{
+.topBar #filterForm input{
     height: 28px;
     border: none;
     border-radius: 3px;
@@ -57,6 +57,20 @@
     background-color: #5cb85c;
     color: white;
     font-size: 18px;
+    font-weight: bold;
+    border-radius: 6px 6px 0 0;
+}
+.modal-header{
+    background-color: #33b13c;
+    color: white;
+    text-align: center;
+    border-radius: 4px 4px 0 0;
+}
+/*.modal-body .form-control{*/
+    /*border: 1px solid #3b2204;*/
+/*}*/
+#addLabel{
+    font-size: 22px;
     font-weight: bold;
 }
 .contacts,.contactsHeader{
@@ -85,6 +99,10 @@
     float: left;
     color: white;
     background-color: #1a7b2f;
+    margin-left: 2%;
+}
+#add{
+    float: left;
     margin-left: 2%;
 }
 #functionBar{
