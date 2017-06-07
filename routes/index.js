@@ -55,7 +55,8 @@ router.post('/login',function (req, res, next) {
        if(err){
            return next(err);
        }
-        if(rows){
+       console.log(rows);
+        if(rows!=''){
            Users.currentUser.username=username;
             Users.currentUser.password=pwd;
             req.session.user=username;

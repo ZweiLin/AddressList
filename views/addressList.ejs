@@ -38,11 +38,12 @@
     <div class="content">
       <ul id="contactsList" class="list-group">
         <li class="contactsHeader list-group-item row">
-          <span class="name col-lg-2 col-md-2 col-sm-2 col-xs-2">姓名</span>
+          <span class="name col-lg-2 col-md-2 col-sm-2 col-xs-2">姓 名</span>
           <span class="telephone col-lg-2 col-md-2 col-sm-2 col-xs-2">固定电话</span>
-          <span class="mobile col-lg-2 col-md-2 col-sm-2 col-xs-2">手机</span>
-          <span class="company col-lg-2 col-md-2 col-sm-2 col-xs-2">公司</span>
-          <span class="post col-lg-2 col-md-2 col-sm-2 col-xs-2">职位</span>
+          <span class="mobile col-lg-2 col-md-2 col-sm-2 col-xs-2">手 机</span>
+          <span class="company col-lg-2 col-md-2 col-sm-2 col-xs-2">公 司</span>
+          <span class="post col-lg-2 col-md-2 col-sm-2 col-xs-2">职 位</span>
+          <span class="post col-lg-2 col-md-2 col-sm-2 col-xs-2">操 作</span>
           <!--<div class=" col-lg-2 col-md-2 col-sm-2 col-xs-2"><button class="operation btn btn-success">操 作</button></div>-->
         </li>
         <div id="results">
@@ -52,7 +53,10 @@
             <span class="mobile col-lg-2 col-md-2 col-sm-2 col-xs-2">18088888888</span>
             <span class="company col-lg-2 col-md-2 col-sm-2 col-xs-2">Tencent</span>
             <span class="post col-lg-2 col-md-2 col-sm-2 col-xs-2">CTO</span>
-            <div class=" col-lg-2 col-md-2 col-sm-2 col-xs-2"><button class="operation btn btn-success">操 作</button></div>
+            <div class=" col-lg-2 col-md-2 col-sm-2 col-xs-2">
+              <button class="edit btn btn-success">编 辑</button>
+              <button class="delete btn btn-warning">删 除</button>
+            </div>
           </li>
         </div>
       </ul>
@@ -84,6 +88,32 @@
   <script src="bootstrap/js/bootstrap.js"></script>
   <script>
       $(function () {
+          function deleteBind() {
+              $('.delete').on('click',function () {
+                  var name=document.getElementById('contact'+this.id.slice(6)).firstElementChild.innerText;
+                  var data={
+                      name: name,
+                  };
+                  //alert(data.filter);
+                  $.ajax({
+                      url: '/addressList/deleteContact',
+                      type: 'post',
+                      data: data,
+                      success: function(data,status){
+                          if(status == 'success'){
+                              //alert("请求成功");
+                              //$('#content').html(data);
+//                              $('#results').html(data);
+                              query();
+                          }
+                      },
+                      error: function(data,err){
+                          alert("发送请求失败！！");
+                      }
+                  });
+//                                  alert(this.tagName);
+              });
+          }
           function query() {
               var url=$('#filterType').val();
               if($('#filter').val()&&url){
@@ -100,6 +130,7 @@
                               //alert("请求成功");
                               //$('#content').html(data);
                               $('#results').html(data);
+                              deleteBind();
                           }
                       },
                       error: function(data,err){
@@ -115,6 +146,7 @@
                               //alert("请求成功");
                               //$('#content').html(data);
                               $('#results').html(data);
+                              deleteBind();
                           }
                       },
                       error: function(data,err){
@@ -129,7 +161,7 @@
           $('.dropdown button').click(function (event) {
               event.preventDefault();
           });
-          window.onload=query();
+
       $('#userButton').mouseover(function() {
           $(this).addClass('open');
       }).mouseout(function() {
@@ -186,21 +218,7 @@
                   }
               });
           });
-          $('#search').click(function () {
-              $.ajax({
-                  url: '/addressList/findAllContacts',
-                  type: 'get',
-                  success: function(data,status){
-                      if(status == 'success'){
-                          //alert("请求成功");
-                          $('#content').html(data);
-                      }
-                  },
-                  error: function(data,err){
-                      alert("发送请求失败！！");
-                  }
-              });
-          });
+          window.onload=query();
       });
   </script>
   </body>

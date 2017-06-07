@@ -125,4 +125,18 @@ router.post('/findContactsByPost',function (req, res, next) {
     });
 });
 
+router.post('/deleteContact',function (req, res, next) {
+    var username=req.session.user;
+    var name=req.body['name'];
+    console.log(name);
+    Contact.deleteContact(username,name,function (err,result) {
+        if(err){
+            return next(err);
+        }
+        console.log(username);
+        console.log(result);
+        res.send('删除成功');
+    });
+});
+
 module.exports=router;

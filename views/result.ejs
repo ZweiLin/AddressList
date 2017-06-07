@@ -1,15 +1,21 @@
-<% result.forEach(function(elem){ %>
-<li class="contacts list-group-item row">
+<% result.forEach(function(elem,index){ %>
+<li class="contacts list-group-item row" id="contact<%=index%>">
   <span class="name col-lg-2 col-md-2 col-sm-2 col-xs-2"><%= elem.name %> </span>
-  <span class="name col-lg-2 col-md-2 col-sm-2 col-xs-2"><%= elem.telephone %> </span>
-  <span class="name col-lg-2 col-md-2 col-sm-2 col-xs-2"><%= elem.mobile %> </span>
-  <span class="name col-lg-2 col-md-2 col-sm-2 col-xs-2"><%= elem.company %> </span>
-  <span class="name col-lg-2 col-md-2 col-sm-2 col-xs-2"><%= elem.post %> </span>
+  <span class="telephone col-lg-2 col-md-2 col-sm-2 col-xs-2"><%= elem.telephone %> </span>
+  <span class="mobile col-lg-2 col-md-2 col-sm-2 col-xs-2"><%= elem.mobile %> </span>
+  <span class="company col-lg-2 col-md-2 col-sm-2 col-xs-2"><%= elem.company %> </span>
+  <span class="post col-lg-2 col-md-2 col-sm-2 col-xs-2"><%= elem.post %> </span>
   <!--<span class="name col-lg-2 col-md-2 col-sm-2 col-xs-2">林某某</span>-->
   <!--<span class="telephone col-lg-2 col-md-2 col-sm-2 col-xs-2">88888888</span>-->
   <!--<span class="mobile col-lg-2 col-md-2 col-sm-2 col-xs-2">18088888888</span>-->
   <!--<span class="company col-lg-2 col-md-2 col-sm-2 col-xs-2">Tencent</span>-->
   <!--<span class="post col-lg-2 col-md-2 col-sm-2 col-xs-2">CTO</span>-->
-  <div class=" col-lg-2 col-md-2 col-sm-2 col-xs-2"><button class="operation btn btn-success">操 作</button></div>
+  <div class=" col-lg-2 col-md-2 col-sm-2 col-xs-2 operation">
+    <div class="btn-group btn-group-sm">
+      <button class="edit btn btn-success " id="edit<%= index%>">编 辑</button>
+      <button class="delete btn btn-danger" id="delete<%= index%>">删 除</button>
+    </div>
+  </div>
 </li>
 <% }); %>
+

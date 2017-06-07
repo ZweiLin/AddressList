@@ -90,3 +90,14 @@ Contact.findContactsByPost=function (username,post,callback) {
         callback(err,rows);
     });
 };
+
+//删除联系人
+Contact.deleteContact=function (username,name,callback) {
+    var sql="DELETE FROM contacts WHERE user='"+username+"' AND name='"+name+"';";
+    db.exec(sql,'',function(err,rows){
+        if(err){
+            return callback(err);
+        }
+        callback(err,rows);
+    });
+}

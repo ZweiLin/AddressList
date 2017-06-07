@@ -43,20 +43,21 @@
 }
 .content{
     position: absolute;
-    left: 25%;
+    left: 20%;
     /*right: 20px;*/
     top: 80px;
     bottom: 20px;
     border-radius: 10px;
     background-color: #ccfff3;
     padding: 10px;
-    width: 60%;
+    width: 70%;
     overflow: auto;
 }
 .contactsHeader{
     background-color: #5cb85c;
     color: white;
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: bold;
 }
 .contacts,.contactsHeader{
     margin: 3px;
@@ -69,10 +70,13 @@
     line-height: 28px;
     text-align: center;
 }
-.contacts .operation{
+.contacts .edit,.contacts .delete{
     padding-top: 3px ;
     padding-bottom: 3px ;
-    margin-left: 20px;
+    /*margin-left: 20px;*/
+}
+.contacts .operation{
+    text-align: center;
 }
 #filterList{
     display: inline;
