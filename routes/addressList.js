@@ -125,6 +125,43 @@ router.post('/findContactsByPost',function (req, res, next) {
     });
 });
 
+router.post('/addContact',function (req, res,next) {
+    var username=req.session.user;
+    var name=req.body['name'];
+    var telephone=req.body['telephone'];
+    var mobile=req.body['mobile'];
+    var company=req.body['company'];
+    var post=req.body['post'];
+    console.log(username+"试图添加联系人：("+name+","+telephone+","+mobile+","+company+","+post+")");
+
+    Contact.addContact(username,name,telephone,mobile,company,post,function (err,result) {
+        if(err){
+            return next(err);
+        }
+        console.log(username+"成功添加联系人：("+name+","+telephone+","+mobile+","+company+","+post+")");
+        res.send("添加成功！！");
+    });
+});
+
+router.post('/updateContact',function (req, res,next) {
+    var username=req.session.user;
+    var name=req.body['name'];
+    var newName=req.body['newName'];
+    var telephone=req.body['telephone'];
+    var mobile=req.body['mobile'];
+    var company=req.body['company'];
+    var post=req.body['post'];
+    console.log(username+"试图修改联系人"+name+"");
+
+    Contact.updateContact(username,name,newName,telephone,mobile,company,post,function (err,result) {
+        if(err){
+            return next(err);
+        }
+        console.log(username+"成功修改联系人"+name+"为：("+newName+","+telephone+","+mobile+","+company+","+post+")");
+        res.send("添加成功！！");
+    });
+});
+
 router.post('/deleteContact',function (req, res, next) {
     var username=req.session.user;
     var name=req.body['name'];

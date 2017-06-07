@@ -27,7 +27,18 @@ Contact.findAllContacts=function (username,callback) {
 
 //添加联系人
 Contact.addContact=function (user,name,telephone,mobile,company,post,callback) {
-    var sql="INSERT INTO contacts VALUES('"+user+"','"+name+"','"+telephone+"','"+mobile+"','"+company+"','"+post+")";
+    var sql="INSERT INTO contacts (user,name,telephone,mobile,company,post) VALUES('"+user+"','"+name+"','"+telephone+"','"+mobile+"','"+company+"','"+post+"')";
+    db.exec(sql,'',function(err,rows){
+        if(err){
+            return callback(err);
+        }
+        callback(err,rows);
+    });
+};
+
+//修改联系人
+Contact.updateContact=function (user,name,newName,telephone,mobile,company,post,callback) {
+    var sql="UPDATE contacts SET name='"+newName+"',telephone='"+telephone+"',mobile='"+mobile+"',company='"+company+"',post='"+post+"' WHERE name='"+name+"' AND user='"+user+"';";
     db.exec(sql,'',function(err,rows){
         if(err){
             return callback(err);

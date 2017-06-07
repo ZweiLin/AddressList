@@ -12,7 +12,7 @@
       <div class="container-fluid">
         <div class="row">
           <button class="btn" id="view"><span class="glyphicon glyphicon-align-justify"></span></button>
-          <div class="modal fade" id="example" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -58,13 +58,13 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-primary">添 加</button>
+                  <button type="button" class="btn btn-primary" id="addBtn">添 加</button>
                   <button type="button" class="btn btn-danger" data-dismiss="modal">关 闭</button>
                 </div>
               </div>
             </div>
           </div>
-          <a data-toggle="modal" data-target="#example" class="btn btn-primary" id="add"><span class="glyphicon glyphicon-plus"></span></a>
+          <a data-toggle="modal" data-target="#addModal" class="btn btn-primary" id="add"><span class="glyphicon glyphicon-plus"></span></a>
           <form onsubmit="false" method="post" id="filterForm">
             <div class="form-group">
               <div class="input-group">
@@ -141,6 +141,44 @@
   <script src="bootstrap/js/bootstrap.js"></script>
   <script>
       $(function () {
+          function updateBind() {
+              $('.updateBtn').on('click',function () {
+                  var index=this.id.slice(6);
+                  var name=document.getElementById('contact'+index).firstElementChild.innerText;
+                  var newName=document.getElementById('updateName'+index).value;
+                  var telephone=document.getElementById('updateTelephone'+index).value;
+                  var mobile=document.getElementById('updateMobile'+index).value;
+                  var company=document.getElementById('updateCompany'+index).value;
+                  var post=document.getElementById('updatePost'+index).value;
+
+                  if(newName!=''){
+                      var data={
+                          name: name,
+                          newName: newName,
+                          telephone:telephone,
+                          mobile:mobile,
+                          company:company,
+                          post:post
+                      };
+                      $.ajax({
+                          url: '/addressList/updateContact',
+                          type: 'post',
+                          data: data,
+                          success: function(data,status){
+                              if(status == 'success'){
+                                  //alert("请求成功");
+                                  //$('#content').html(data);
+//                              $('#results').html(data);
+                                  query();
+                              }
+                          },
+                          error: function(data,err){
+                              alert("发送请求失败！！");
+                          }
+                      });
+                  }
+              });
+          }
           function deleteBind() {
               $('.delete').on('click',function () {
                   var name=document.getElementById('contact'+this.id.slice(6)).firstElementChild.innerText;
@@ -184,6 +222,7 @@
                               //$('#content').html(data);
                               $('#results').html(data);
                               deleteBind();
+                              updateBind();
                           }
                       },
                       error: function(data,err){
@@ -200,6 +239,7 @@
                               //$('#content').html(data);
                               $('#results').html(data);
                               deleteBind();
+                              updateBind();
                           }
                       },
                       error: function(data,err){
@@ -214,12 +254,43 @@
           $('.dropdown button').click(function (event) {
               event.preventDefault();
           });
-
-      $('#userButton').mouseover(function() {
-          $(this).addClass('open');
-      }).mouseout(function() {
-          $(this).removeClass('open');
-      });
+          $('#addBtn').click(function () {
+              var name=$('#addName').val();
+              var telephone=$('#addTelephone').val();
+              var mobile=$('#addMobile').val();
+              var company=$('#addCompany').val();
+              var post=$('#addPost').val();
+              if(name!==''){
+                  var data={
+                      name: name,
+                      telephone: telephone,
+                      mobile: mobile,
+                      company: company,
+                      post: post
+                  };
+                  $.ajax({
+                      url: '/addressList/addContact',
+                      type: 'post',
+                      data: data,
+                      success: function(data,status){
+                          if(status == 'success'){
+                              //alert("请求成功");
+                              //$('#content').html(data);
+                              $('#addModal').modal('hide');
+                              query();
+                          }
+                      },
+                      error: function(data,err){
+                          alert("发送请求失败！！");
+                      }
+                  });
+              }
+          });
+          $('#userButton').mouseover(function() {
+              $(this).addClass('open');
+          }).mouseout(function() {
+              $(this).removeClass('open');
+          });
           $('#filter').on('input',function () {
              query();
           });

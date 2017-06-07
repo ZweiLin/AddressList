@@ -41,6 +41,7 @@
     border-radius: 3px;
     padding: 0 1em;
 }
+
 .content{
     position: absolute;
     left: 20%;
@@ -69,14 +70,14 @@
 /*.modal-body .form-control{*/
     /*border: 1px solid #3b2204;*/
 /*}*/
-#addLabel{
+#addLabel,.updateLabel{
     font-size: 22px;
     font-weight: bold;
 }
 .contacts,.contactsHeader{
     margin: 3px;
 }
-.contacts span,.contactsHeader span{
+.contacts>span,.contactsHeader span{
     /*display: inline-block;*/
     /*!*float: left;*!*/
     /*margin: 5px;*/

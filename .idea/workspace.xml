@@ -4,8 +4,11 @@
     <list default="true" id="b6369069-8b58-48f4-b056-611869de4334" name="Default" comment="更新联系人删除功能">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/contacts.js" afterPath="$PROJECT_DIR$/models/contacts.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/addressList.css" afterPath="$PROJECT_DIR$/public/stylesheets/addressList.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/addressList.js" afterPath="$PROJECT_DIR$/routes/addressList.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/addressList.ejs" afterPath="$PROJECT_DIR$/views/addressList.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/result.ejs" afterPath="$PROJECT_DIR$/views/result.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,22 +26,10 @@
       <file leaf-file-name="addressList.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/addressList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="721">
-              <caret line="137" column="15" lean-forward="false" selection-start-line="137" selection-start-column="15" selection-end-line="137" selection-end-column="15" />
+            <state relative-caret-position="192">
+              <caret line="145" column="21" lean-forward="false" selection-start-line="145" selection-start-column="21" selection-end-line="145" selection-end-column="21" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="users.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/users.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="19" column="38" lean-forward="false" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#41#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -57,8 +48,8 @@
       <file leaf-file-name="contacts.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/contacts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="688">
-              <caret line="95" column="29" lean-forward="false" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="29" />
+            <state relative-caret-position="644">
+              <caret line="40" column="180" lean-forward="true" selection-start-line="40" selection-start-column="180" selection-end-line="40" selection-end-column="180" />
               <folding />
             </state>
           </provider>
@@ -67,8 +58,8 @@
       <file leaf-file-name="addressList.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/addressList.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="37" column="19" lean-forward="false" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
+            <state relative-caret-position="-30">
+              <caret line="79" column="36" lean-forward="true" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -77,8 +68,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+            <state relative-caret-position="435">
+              <caret line="27" column="62" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -97,10 +88,22 @@
       <file leaf-file-name="addressList.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/addressList.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="770">
-              <caret line="56" column="28" lean-forward="false" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
+            <state relative-caret-position="92">
+              <caret line="148" column="87" lean-forward="true" selection-start-line="148" selection-start-column="87" selection-end-line="148" selection-end-column="87" />
               <folding>
-                <element signature="e#878#885#1#HTML" expanded="true" />
+                <element signature="e#879#886#1#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="result.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/result.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="747">
+              <caret line="52" column="100" lean-forward="false" selection-start-line="52" selection-start-column="100" selection-end-line="52" selection-end-column="100" />
+              <folding>
+                <element signature="e#1411#1418#1#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -147,6 +150,9 @@
       <find>userb</find>
       <find>alert</find>
       <find>oper</find>
+      <find>add</find>
+      <find>.modal</find>
+      <find>span</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -185,13 +191,13 @@
         <option value="$PROJECT_DIR$/views/index.html" />
         <option value="$PROJECT_DIR$/public/stylesheets/index.css" />
         <option value="$PROJECT_DIR$/routes/index.js" />
-        <option value="$PROJECT_DIR$/views/result.ejs" />
-        <option value="$PROJECT_DIR$/routes/addressList.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/bootstrap-modal.js" />
+        <option value="$PROJECT_DIR$/views/addressList.html" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/models/contacts.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/bootstrap-modal.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/addressList.css" />
-        <option value="$PROJECT_DIR$/views/addressList.html" />
+        <option value="$PROJECT_DIR$/views/result.ejs" />
+        <option value="$PROJECT_DIR$/routes/addressList.js" />
         <option value="$PROJECT_DIR$/views/addressList.ejs" />
       </list>
     </option>
@@ -513,7 +519,7 @@
       <workItem from="1496626998868" duration="36751000" />
       <workItem from="1496735661846" duration="23373000" />
       <workItem from="1496773814731" duration="193000" />
-      <workItem from="1496803037701" duration="14428000" />
+      <workItem from="1496803037701" duration="20722000" />
     </task>
     <task id="LOCAL-00001" summary="更新views页面、数据库的初步设计以及路由管理的初步实现">
       <created>1496391148959</created>
@@ -641,11 +647,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496811657191</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="更新弹出模态框表单（用于新建、编辑联系人）功能">
+      <created>1496817568068</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1496817568068</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154242000" />
+    <option name="totallyTimeSpent" value="160536000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -693,7 +706,8 @@
     <MESSAGE value="对查询联系人功能的model层的mysql语句进行优化" />
     <MESSAGE value="更新查询功能的前端部分，实现筛选条件更改时进行实时查询功能" />
     <MESSAGE value="更新联系人删除功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新联系人删除功能" />
+    <MESSAGE value="更新弹出模态框表单（用于新建、编辑联系人）功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新弹出模态框表单（用于新建、编辑联系人）功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -874,14 +888,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/result.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" column="54" lean-forward="false" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -900,30 +906,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/contacts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="688">
-          <caret line="95" column="29" lean-forward="false" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/bootstrap-modal.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8694">
@@ -936,24 +918,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="57" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/addressList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="721">
-          <caret line="137" column="15" lean-forward="false" selection-start-line="137" selection-start-column="15" selection-end-line="137" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/addressList.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="37" column="19" lean-forward="false" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -976,12 +940,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="27" column="62" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/addressList.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-30">
+          <caret line="79" column="36" lean-forward="true" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/contacts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="40" column="180" lean-forward="true" selection-start-line="40" selection-start-column="180" selection-end-line="40" selection-end-column="180" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/addressList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="145" column="21" lean-forward="false" selection-start-line="145" selection-start-column="21" selection-end-line="145" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/result.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="747">
+          <caret line="52" column="100" lean-forward="false" selection-start-line="52" selection-start-column="100" selection-end-line="52" selection-end-column="100" />
+          <folding>
+            <element signature="e#1411#1418#1#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/addressList.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="770">
-          <caret line="56" column="28" lean-forward="false" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
+        <state relative-caret-position="92">
+          <caret line="148" column="87" lean-forward="true" selection-start-line="148" selection-start-column="87" selection-end-line="148" selection-end-column="87" />
           <folding>
-            <element signature="e#878#885#1#HTML" expanded="true" />
+            <element signature="e#879#886#1#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
