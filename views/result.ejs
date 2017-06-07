@@ -12,7 +12,59 @@
   <!--<span class="post col-lg-2 col-md-2 col-sm-2 col-xs-2">CTO</span>-->
   <div class=" col-lg-2 col-md-2 col-sm-2 col-xs-2 operation">
     <div class="btn-group btn-group-sm">
-      <button class="edit btn btn-success " id="edit<%= index%>">编 辑</button>
+      <div class="modal fade update" id="updateModal<%=index%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title updateLabel">修改联系人</h4>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+                  <form role="form" method="post" onsubmit="false">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                        <input type="text" class="form-control" name="name"  id="updateName<%=index%>" placeholder="姓名" value="<%=elem.name%>">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-phone-alt"></span></span>
+                        <input type="text" class="form-control" name="telephone" id="updateTelephone<%=index%>" placeholder="固定电话" value="<%=elem.telephone%>">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
+                        <input type="text" class="form-control" name="mobile" id="updateMobile<%=index%>" placeholder="手机" value="<%=elem.mobile%>">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
+                        <input type="text" class="form-control" name="telephone" id="updateCompany<%=index%>" placeholder="公司" value="<%=elem.company%>">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-star"></span></span>
+                        <input type="text" class="form-control" name="post" id="updatePost<%=index%>" placeholder="职位" value="<%=elem.post%>">
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary updateBtn" id="update<%=index%>">修 改</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">关 闭</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="edit btn btn-success " data-toggle="modal" data-target="#updateModal<%=index%>"  id="edit<%= index%>">编 辑</button>
       <button class="delete btn btn-danger" id="delete<%= index%>">删 除</button>
     </div>
   </div>
