@@ -41,7 +41,7 @@ router.get('/register', function(req, res, next) {
 router.get('/about',function (req, res, next) {
     res.render('about', {
         title: '关于通讯录系统',
-        developer: '14级软件二班-林泽伟-3114006220',
+        developer: '14级软件二班\n林泽伟\n3114006220',
         git: 'https://github.com/ZweiLin/AddressList'
     });
 });
