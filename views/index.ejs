@@ -18,7 +18,7 @@
         <div class="collapse navbar-collapse" id="links">
           <ul class="nav navbar-nav navbar-left">
             <li class="active"><a href="home" id="home">首页</a></li>
-            <li><a href="addressList">我的通讯录</a> </li>
+            <li><a href="addressList" id="addressList">我的通讯录</a> </li>
             <li><a href="about" id="about">关于</a> </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -86,23 +86,22 @@
           });
       }) ;
      $("#login").click(function (event) {
-         active("login");
          event.preventDefault();
          getPage("/login");
      }) ;
       $("#register").click(function (event) {
-          active("register");
           event.preventDefault();
           getPage("/register");
       }) ;
+      $('#addressList').click(function () {
+         active('addressList');
+      });
       $("#home").click(function (event) {
-          active("home");
           event.preventDefault();
           getPage("/home");
 //          alert(currentUser);
       }) ;
       $("#about").click(function (event) {
-          active("about");
           event.preventDefault();
           getPage("/about");
 //          alert(currentUser);
@@ -112,14 +111,19 @@
       }).mouseout(function() {
           $(this).removeClass('open');
       });
-      //window.onload=getPage("/home");
-      window.onload=getPage($('#location').text().replace(/\s+/g,""));
+//      window.onload=getPage($('#location').text().replace(/\s+/g,""));
+      window.onload=function () {
+          var url=$('#location').text().replace(/\s+/g,"");
+//          alert(url);
+          getPage(url);
+      };
       function getPage(url) {
           $.ajax({
               url: url,
               success: function(data){
 //                  alert("成功获取登录页!!");
                   $('#content').html(data);
+                  active(url.slice(1));
               },
               error: function(jqXHR, textStatus, errorThrown){
                   alert('error ' + textStatus + " " + errorThrown);

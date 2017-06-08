@@ -12,13 +12,13 @@ router.get('/', function(req, res, next) {
     if(req.session.user){
         location='addressList';
     }else {
-        location='index';
+        location='login';
     }
     res.render(location, {
         title: '微通讯录',
         currentUser:req.session.user||'未登录',
         location:'login',
-        message: '游客，请先进行登录操作',
+        message: '游客，请先进行登录操作'
     });
 });
 router.get('/findAllContacts',function (req, res, next) {
