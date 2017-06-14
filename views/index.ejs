@@ -12,7 +12,7 @@
           <a class="navbar-brand" href="/">
             <span class="glyphicon glyphicon-phone-alt"></span>
             <span>通讯录系统</span>
-            <span class="hidden" id="location"><%=location%></span>
+            <!--<span  id="location"></span>-->
           </a>
         </div>
         <div class="collapse navbar-collapse" id="links">
@@ -42,7 +42,7 @@
         <a href="#" class="close" data-dismiss="alert">
           &times;
         </a>
-        <span><%= message%></span>
+        <span>游客，请先进行登录操作</span>
       </div>
     </div>
     <div class="container" id="content"></div>
@@ -59,9 +59,9 @@
 <script>
   $(function () {
 //      alert($('#user').text().replace(/\s+/g,""));
-     if($('#loginAlert span').text().replace(/\s+/g,"")!==''){
-         $('#loginAlert').removeClass('hidden');
-     }
+//     if($('#loginAlert span').text().replace(/\s+/g,"")!==''){
+//         $('#loginAlert').removeClass('hidden');
+//     }
      if($('#user').text().replace(/\s+/g,"")==='未登录'){
           $('#userButton').addClass('hidden');
      }else {
@@ -93,8 +93,15 @@
           event.preventDefault();
           getPage("/register");
       }) ;
-      $('#addressList').click(function () {
+      $('#addressList').click(function (event) {
          active('addressList');
+         if(!$('#login').parent().hasClass('hidden')){
+             event.preventDefault();
+             getPage('/login');
+             $('#loginAlert').removeClass('hidden');
+         }else{
+             location.href('/addressList');
+         }
       });
       $("#home").click(function (event) {
           event.preventDefault();
@@ -113,9 +120,9 @@
       });
 //      window.onload=getPage($('#location').text().replace(/\s+/g,""));
       window.onload=function () {
-          var url=$('#location').text().replace(/\s+/g,"");
+          //var url=$('#location').text().replace(/\s+/g,"");
 //          alert(url);
-          getPage(url);
+          getPage('/home');
       };
       function getPage(url) {
           $.ajax({
@@ -134,7 +141,6 @@
           $(".active").removeClass("active");
           $("#"+id).parent().addClass("active");
       }
-
   });
 </script>
 </html>
